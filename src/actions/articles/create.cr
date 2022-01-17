@@ -6,7 +6,8 @@ class Articles::Create < BrowserAction
         redirect Show.with(article.id)
       else
         flash.failure = "It looks like the form is not valid"
-        html NewPage, operation: operation
+        html_with_status NewPage, HTTP::Status::UNPROCESSABLE_ENTITY,
+          operation: operation
       end
     end
   end

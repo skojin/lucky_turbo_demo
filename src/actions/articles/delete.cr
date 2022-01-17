@@ -3,7 +3,7 @@ class Articles::Delete < BrowserAction
     article = ArticleQuery.find(article_id)
     DeleteArticle.delete(article) do |_operation, _deleted|
       flash.success = "Deleted the article"
-      redirect Index
+      redirect Index, status: HTTP::Status::SEE_OTHER
     end
   end
 end

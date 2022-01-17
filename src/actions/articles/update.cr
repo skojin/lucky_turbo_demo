@@ -7,7 +7,9 @@ class Articles::Update < BrowserAction
         redirect Show.with(updated_article.id)
       else
         flash.failure = "It looks like the form is not valid"
-        html EditPage, operation: operation, article: updated_article
+        html_with_status EditPage, HTTP::Status::UNPROCESSABLE_ENTITY,
+          operation: operation,
+          article: updated_article
       end
     end
   end

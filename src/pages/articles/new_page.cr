@@ -12,7 +12,7 @@ class Articles::NewPage < MainLayout
       # Edit fields in src/components/articles/form_fields.cr
       mount Articles::FormFields, op
 
-      submit "Save", data_disable_with: "Saving..."
+      submit "Save"
     end
   end
 end

@@ -14,7 +14,7 @@ class Articles::EditPage < MainLayout
       # Edit fields in src/components/articles/form_fields.cr
       mount Articles::FormFields, op
 
-      submit "Update", data_disable_with: "Updating..."
+      submit "Update"
     end
   end
 end
