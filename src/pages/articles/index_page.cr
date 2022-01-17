@@ -6,15 +6,18 @@ class Articles::IndexPage < MainLayout
     h1 "All Articles"
     link "New Article", to: Articles::New
     render_articles
+    render_form
   end
 
   def render_articles
-    ul do
+    ul id: "articles" do
       articles.each do |article|
-        li do
-          link article.title, Articles::Show.with(article)
-        end
+        mount Articles::Item, article
       end
     end
+  end
+
+  def render_form
+    mount Articles::AppendForm, SaveArticle.new
   end
 end
